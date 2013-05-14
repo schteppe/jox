@@ -1,0 +1,5 @@
+{
+    "template" : "doc/template.ejs",
+    "source" : ["index.js"],
+    "destination" : "doc/index.html"
+}

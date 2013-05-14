@@ -1,0 +1,16 @@
+{
+    "name": "docjs",
+    "description": "JavaScript documentation generator",
+    "version" : "0.0.1",
+    "author" : "Stefan Hedman <schteppe@gmail.com>",
+    "keywords" : ["documentation", "docs", "markdown", "jsdoc"],
+    "bin" : {
+        "docjs": "./bin/docjs"
+    },
+    "dependencies": {
+        "commander": "1.1.1",
+        "dox":"0.4.3",
+        "ejs" : "0.8.4",
+        "wrench" : "1.5.1"
+    }
+}
