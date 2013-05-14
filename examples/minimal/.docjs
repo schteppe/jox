@@ -1,0 +1,5 @@
+{
+    "template" : "template.ejs",
+    "source" : ["add.js"],
+    "destination" : "doc.html"
+}
