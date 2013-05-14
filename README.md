@@ -3,12 +3,29 @@
 ```docjs``` maps comments in your source to custom HTML. The comments are written using JSDoc-style tags and Markdown syntax, and the HTML is rendered using your own EJS templates. This makes it possible to make super-customized documentation for your code.
 
 ## Usage
-### 1. Install docjs
+### 1. Document your code
+Example:
 ```
-npm install docjs -g
+/**
+ * Computes the sum of two numbers.
+ * @function
+ * @param {number} a
+ * @param {number} b
+ * @return {number} The sum.
+ */
+function add(a,b) {
+    return a+b;
+}
 ```
 
-### 2. Create an .ejs template
+### 2. Install docjs
+```
+git clone https://github.com/schteppe/docjs.git;
+cd docjs;
+npm install . -g
+```
+
+### 3. Create an .ejs template
 ```
 <!DOCTYPE html>
 <html>
@@ -31,7 +48,7 @@ In the template you have access to the ```comments``` array produced by [dox](ht
 
 Let's say you save the above file in your project folder as ```doc/template.ejs```.
 
-### 3. Create a file ```.docjs``` in the root of your project folder
+### 4. Create a file ```.docjs``` in the root of your project folder
 Example:
 ```
 {
@@ -42,7 +59,7 @@ Example:
 ```
 This instructs ```docjs``` to look for JavaScript files in ```src/```, use the template ```doc/template.ejs``` and produce a HTML file ```doc/index.html```.
 
-### 4. Run docjs
+### 5. Run docjs
 ```
 docjs
 ```
