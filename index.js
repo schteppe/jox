@@ -84,16 +84,26 @@ function getCommentsByTag(comments,filter){
             ctx=d.ctx,
             tags=d.tags,
             ok = false;
+
+        // Check all tags - must find one matching
         for(var j=0; j<tags.length; j++){
+
+            // All filter key/value pairs must match
+            var numPairs = 0;
+            var numMatching = 0;
             for(var key in filter){
-                if(tags[j][key] == filter[key]){
-                    ok = true;
-                    break;
-                }
+                if(tags[j][key] == filter[key])
+                    numMatching++;
+                numPairs++;
             }
-            if(!ok) break;
+            if(numPairs == numMatching){
+                // Found one matching. All ok.
+                ok = true;
+                break;
+            }
         }
-        if(ok && tags.length){
+
+        if(ok && tags.length){ // Skip if there were no tags
             result.push(d);
         }
     }

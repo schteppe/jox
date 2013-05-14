@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Class documentation</h1>
+    <%
+
+    var classComments =     getCommentsByTag(comments,{ type : "class" });
+    var propertyComments =  getCommentsByTag(comments,{ type : "property" });
+    var methodComments =    getCommentsByTag(comments,{ type : "method" });
+
+    for(var i=0; i<classComments.length; i++){
+        var c = classComments[i]; %>
+
+        <h2>Class: <%=c.ctx.name%></h2>
+        <%-c.description.full%>
+
+        <h3>Methods</h3>
+        <dl>
+        <%
+        var methods = getCommentsByTag(methodComments,{ type : "memberof", string : c.ctx.name });
+        for(var j=0; j<methods.length; j++){
+            %><dt><%=methods[j].ctx.name%></dt><%
+            %><dd><%-methods[j].description.full%></dd><%
+        }
+        %>
+        </dl>
+
+        <h3>Properties</h3>
+        <dl>
+        <%
+        var properties = getCommentsByTag(propertyComments,{ type : "memberof", string : c.ctx.name });
+        for(var j=0; j<properties.length; j++){
+            %><dt><%=properties[j].ctx.name%></dt><%
+            %><dd><%-properties[j].description.full%></dd><%
+        }
+        %>
+        </dl>
+        <%
+    }
+    %>
+</body>
+</html>

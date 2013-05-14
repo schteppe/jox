@@ -1,0 +1,5 @@
+{
+    "template" : "template.ejs",
+    "source" : ["Circle.js"],
+    "destination" : "doc.html"
+}
