@@ -1,4 +1,5 @@
 var ejs = require('ejs'),
+    jade = require('jade'),
     fs = require('fs'),
     dox = require("dox"),
     path = require("path"),
@@ -56,8 +57,20 @@ exports.run = function(source,dest,templatePath){
                 }
             });
             break;
+
+        case "jade":
+            // Compile a function
+            var fn = jade.compile(file);
+            rendered = fn({
+                comments : allComments,
+                getCommentsByTag : getCommentsByTag,
+                filterTags : filterTags
+            });
+            break;
+
         default:
             console.error("Rendering engine '"+engine+"' not supported yet.");
+            process.exit(1);
             break;
     }
 
@@ -70,7 +83,7 @@ exports.run = function(source,dest,templatePath){
  * Filters <code>comments</code>. Only comments with at least one tag matching the <code>filter</code> will be returned.
  *
  *     var functionComments = getCommentsByTag(comments,{ type: "function" });
- * 
+ *
  * Note that this function only is available in the templating engine.
  * @function
  * @param {Array} comments The comments to filter.
@@ -112,7 +125,7 @@ function getCommentsByTag(comments,filter){
 
 /**
  * Filters <code>tags</code> and returns the filtered array. Only tags matching the <code>filter</code> will be included in the result.
- * 
+ *
  * Example:
  *
  *     var paramTags = filterTags(comments[0].tags,{ type : "param" });

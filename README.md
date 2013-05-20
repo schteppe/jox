@@ -26,7 +26,7 @@ function add(a,b) {
 ```
 Say you save this file as ```src/add.js```.
 
-#### 2. Create an .ejs template
+#### 2. Create an .ejs or .jade template
 ```
 <!DOCTYPE html>
 <html>
@@ -43,7 +43,7 @@ Say you save this file as ```src/add.js```.
 </body>
 </html>
 ```
-For more information on how to write EJS templates, visit http://embeddedjs.com/.
+For more information on how to write EJS templates, visit http://embeddedjs.com/. You can also use [Jade](http://jade-lang.com/).
 
 In the template you have access to the ```comments``` array produced by [dox](https://github.com/visionmedia/dox), as well as a few nifty functions provided by docjs. For more information about what information the ```comments``` contains, visit the [dox github page](https://github.com/visionmedia/dox).
 
@@ -71,7 +71,7 @@ Done! Now you can view ```doc/index.html``` in a web browser. It will look somet
 <body>
     <h1>My first docjs template</h1>
     <h2>add</h2>
-    <p>Computes the sum of two numbers.</p>   
+    <p>Computes the sum of two numbers.</p>
 </body>
 </html>
 ```

@@ -1,0 +1,5 @@
+{
+    "template" : "template.jade",
+    "source" : ["Circle.js"],
+    "destination" : "index.html"
+}
