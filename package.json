@@ -1,11 +1,11 @@
 {
-    "name": "docjs",
+    "name": "jox",
     "description": "JavaScript documentation generator",
     "version" : "0.0.1",
     "author" : "Stefan Hedman <schteppe@gmail.com>",
     "keywords" : ["documentation", "docs", "markdown", "jsdoc"],
     "bin" : {
-        "docjs": "./bin/docjs"
+        "jox": "./bin/jox"
     },
     "dependencies": {
         "commander": "1.1.1",

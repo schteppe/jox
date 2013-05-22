@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var ejs = require('ejs'),
+    fs = require('fs'),
+    jox = require('../index.js'),
+    dox = require("dox"),
+    path = require("path"),
+    wrench = require("wrench"),
+    joxrc = JSON.parse(fs.readFileSync('.jox'));
+
+var templatePath = path.normalize(joxrc.template),
+    source = joxrc.source,
+    dest = path.normalize(joxrc.destination);
+
+jox.run(source,dest,templatePath);

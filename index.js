@@ -7,11 +7,11 @@ var ejs = require('ejs'),
     program = require('commander');
 
 /**
- * Run docjs via its Node.js-API. Example:
+ * Run jox via its Node.js-API. Example:
  *
  *     #!/usr/bin/env node
- *     var docjs = require('docjs');
- *     docjs.run(['src/file.js'], 'doc/index.html', 'template.ejs');
+ *     var jox = require('jox');
+ *     jox.run(['src/file.js'], 'doc/index.html', 'template.ejs');
  *
  * @function
  * @param {Array} source JavaScript files to parse.
